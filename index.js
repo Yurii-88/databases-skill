@@ -19,32 +19,32 @@ app.listen(PORT, function(){
 });
 
 db.serialize(function() {
-  // db.run(`CREATE TABLE IF NOT EXISTS users (
-  //   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  //   name text,
-  //   email text UNIQUE,
-  //   password text
-  // );`);
+  db.run(`CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name text,
+    email text UNIQUE,
+    password text
+  );`);
 
   // db.run(`DROP TABLE users `);
 
-  // for (let i = 0; i < 10; i++) {
-  //     db.run(`INSERT INTO users (id, name, email, password) VALUES(?,?, ?, ?)`, [i, `User${i}`, `User${i}@gmail.com`, `${i}_user${i}`]);
-  // }
+  for (let i = 0; i < 10; i++) {
+      db.run(`INSERT INTO users (id, name, email, password) VALUES(?,?, ?, ?)`, [i, `User${i}`, `User${i}@gmail.com`, `${i}_user${i}`]);
+  }
 
   // });
 
-  // db.run(`CREATE TABLE IF NOT EXISTS articles (
-  //   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  //   content TEXT NOT NULL
-  // );`);
+  db.run(`CREATE TABLE IF NOT EXISTS articles (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    content TEXT NOT NULL
+  );`);
 
     // db.run(`DROP TABLE articles`);
 
 
-//   for (let i = 0; i < 10; i++) {
-//     db.run(`INSERT INTO articles (id,content) VALUES(?,?)`, [i, i + 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque quod nulla veritatis nisi beatae quos architecto in veniam officiis velit.']);
-// }
+  for (let i = 0; i < 10; i++) {
+    db.run(`INSERT INTO articles (id,content) VALUES(?,?)`, [i, i + 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque quod nulla veritatis nisi beatae quos architecto in veniam officiis velit.']);
+}
 
 });
 
